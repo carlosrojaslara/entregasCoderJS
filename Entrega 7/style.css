@@ -1,0 +1,47 @@
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ejemplo{
+    min-width: 200px;
+    min-height: 200px;
+    box-shadow:0 20px 25px -5px rgba(0 0 0 / .10),
+    0 10px 10px -5px rgba(0 0 0 / .04);
+    margin: 1rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+.modalContainer {
+    height:100vh;
+    width:100vw;
+    background-color: grey;
+    position: fixed;
+    top: 0;
+    left:0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+
+}
+
+.modalActive{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    background-color: white;
+    width:200px;
+    height:380px;
+    border-radius:5px;
+    text-align: center;
+    padding: 15px;
+}
