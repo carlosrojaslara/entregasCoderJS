@@ -110,7 +110,7 @@ musicas.forEach (banda => {
         <h2>${banda.genero}</h2>
     </div>
     <div>
-        <button id="" onclick=${agregarFav(banda)}">Agregar</button>
+        <button id="" onclick=${agregarFav(banda)}>Agregar</button>
         <button id="">Borrar</button>
     </div>`
 
