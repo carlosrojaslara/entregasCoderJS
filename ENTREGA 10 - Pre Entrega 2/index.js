@@ -38,7 +38,7 @@ function armarTarjeta (banda) {
 
     const genero=document.createElement("div");
     genero.textContent=`${banda.genero}`;
-    tarjeta.appendChild(nombreBanda);
+    tarjeta.appendChild(genero);
 
     return tarjeta ;
 }
@@ -66,9 +66,10 @@ function guardarFav(listadoFav){
 
 }
 
-function agregarFav(banda){
-    let listadoFav = cargarFavs();
-    listadoFav.push(banda);
+function agregarFav(id){
+    let listadoFav = []; 
+    listadoFav = cargarFavs();
+    listadoFav.push(musicas[id]);
     guardarFav(listadoFav);
 }
 
@@ -110,7 +111,7 @@ musicas.forEach (banda => {
         <h2>${banda.genero}</h2>
     </div>
     <div>
-        <button id="" onclick=${agregarFav(banda)}>Agregar</button>
+        <button id="" onclick="agregarFav(${banda.id})">Agregar</button>
         <button id="">Borrar</button>
     </div>`
 
