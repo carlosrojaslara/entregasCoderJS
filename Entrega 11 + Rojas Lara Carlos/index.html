@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css">
+    <title>Entrega 11</title>
+   <!---- <script defer src="./jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+     <header>
+         <h1>Medidor de proteinas</h1>
+     </header>
+     <div class="contenedor1">
+         <label>Seleccione su genero</label>
+        <select id='genero' name="genero">
+            <option id="fem" value="femenino" selected>FEMENINO</option>
+            <option id="masc" value="masculino" selected>MASCULINO</option>
+          </select>
+        <button id='seleccionar'>Seleccionar</button>
+         </form>
+         <form id="form-proteina" class="oculto">
+             <input type="text" id="input-peso" placeholder="ingrese su peso">
+             <button id="boton-form">Calcular</button>
+         </form>
+     </div>
+     <div id="resultado">
+
+     </div>
+        <script defer src="./index.js"></script>
+
+  </body>
+</html>

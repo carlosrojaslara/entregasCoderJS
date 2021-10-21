@@ -1,0 +1,12 @@
+.oculto{
+    opacity: 0;
+}
+.visible{
+    opacity:1;
+    background-color: black;
+}
+
+#resultado{
+    height: 300px;
+    width: 300px;
+}
