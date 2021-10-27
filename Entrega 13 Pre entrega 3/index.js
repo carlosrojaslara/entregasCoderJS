@@ -152,9 +152,14 @@ formulario.addEventListener('submit', async (e)=>{
 
 mostrarFav.addEventListener("click", mostrarFavo);
 const mostrar=document.getElementById("show");
+const apagar=document.getElementById('apagar')
 
 $(mostrar).click(() => {
     $("#buscador").fadeIn(500)
+})
+
+$(apagar).click(() =>{
+    $("#buscador").fadeOut(500)
 })
 
 
