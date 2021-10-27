@@ -151,3 +151,26 @@ formulario.addEventListener('submit', async (e)=>{
  
 
 mostrarFav.addEventListener("click", mostrarFavo);
+const mostrar=document.getElementById("show");
+
+$(mostrar).click(() => {
+    $("#buscador").fadeIn(500)
+})
+
+
+//$("header").prepend("<h1 class="jContenedor">TU MUSICA</h1>") 
+//$(".jContenedor")
+
+
+
+
+
+
+//$(() => {
+  //  $(".jContenedor").on("mouseover", function (e) {
+    //    $(e.target).css("background-color","yellow")
+
+//})})
+;
+
+
