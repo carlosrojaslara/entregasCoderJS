@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>PRE Entrega</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+  </head>
+  <body class="black">
+      <header id='header'>
+        <h1 id='titulo'>AGENDA DE MUSICA</h1>
+      </header>
+      <div class='modal-container'>
+        <div id='modal'>
+          <button id='cerrarModal'>Cerrar</button>
+          <button id='agregar'>Agregar a Favoritos</button>
+        </div>
+
+      </div>
+      <div id="formulario">
+        <form id="buscador">
+          <input type="text" name="artista" placeholder="nombre de la banda" class="form-control" id="nombre-artista" required>
+          <br>
+          <input type="submit" class="btn btn-info">
+
+        </form>  
+      </div>
+      <div id='contenedor'>
+        <div id='portada'>
+          <img src ='media/563d1584d4ed0d75aa7cb3fb63d6d25f8050dc81r1-1998-2048v2_hq.jpg'>
+        </div>
+      </div>
+      <div id='listado'>
+
+      </div>
+
+      <script defer src="./index.js"></script>
+
+  </body>
+</html>
