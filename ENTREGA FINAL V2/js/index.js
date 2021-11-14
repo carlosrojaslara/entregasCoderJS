@@ -3,7 +3,7 @@
 
 let favoritos = recuperarFavs();
 
-let bandas = [];
+let bandas = recuperarBandas();
 
 let bandasLS=[];
 
@@ -22,6 +22,7 @@ const modal = document.getElementById('modal');
 const modalContenedor = document.getElementsByClassName('modal-container')[0];
 const cerrarModal = document.getElementById('cerrarModal');
 const agregar = document.getElementById('agregar');
+let listadoFavs = document.getElementById('listado');
 let artistaTemplate=document.createElement("div");
 let bandaAgregada;
 let generoBanda;
@@ -43,14 +44,23 @@ function recuperarFavs (){
     if (bandasGet === null) 
         return 0;
     else
-        console.log(bandasGet);
         return bandasGet.length;     
 }
 
+function recuperarBandas (){
+    let bandasGet=[];
+
+    return bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
+     
+}
+
 function updateHeader(){
+
+    let favs = recuperarFavs();
+
     $('#cartel2').remove();
 
-    $("#header").append(`<div id ='cartel'> <p id='cartel2'> Tenes ${favoritos} bandas favoritas !! </p></div>`);
+    $("#header").append(`<div id ='cartel'> <p id='cartel2'> Tenes ${favs} bandas favoritas !! </p></div>`);
 }
 
 function eliminarFav(nombre){
@@ -116,20 +126,16 @@ function mostrarFav(){
 
 }
 
+
 //------------nodosEventos//
-//let carrito = document.createElement("div");
 
-//carrito.innerHTML = `<div id ='cartel'> <p> Tenes ${favoritos} bandas favoritas !! </p>
-
-//<button onclick="mostrarFav()">VER MIS BANDAS</button>`;
-
-//header.appendChild(carrito) ; 
 
 $("#header").append(`<div id ='cartel'> <p id='cartel2'> Tenes ${favoritos} bandas favoritas !! </p>
 <button onclick="mostrarFav()">VER MIS BANDAS</button>`);
 
 formulario.addEventListener('submit',async (e) => {
     e.preventDefault();
+
 
     let artistaTemplate=document.createElement("div");
 
