@@ -86,6 +86,8 @@ function eliminarFav(nombre){
 
      updateHeader();
 
+     alert('BANDA ELIMINADA CON EXITO!!');
+
 
 }
 
@@ -111,6 +113,7 @@ function armarTarjeta (banda){
     return tarjeta;
 
 }
+
 
 function cargarFavs(){
     bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
@@ -150,24 +153,30 @@ formulario.addEventListener('submit',async (e) => {
     
     let artistaDatos = await artistaFetch.json();
 
-    artistaTemplate.innerHTML = `
-        <img src="${artistaDatos.artists[0].strArtistLogo}" alt="logo">
-        <h2>${artistaDatos.artists[0].strArtist}<h2>
-        <p>${artistaDatos.artists[0].strStyle}</p>
-        <p>${artistaDatos.artists[0].intBornYear} - ${artistaDatos.artists[0].intDiedYear|| 'presente' }</p>
-        <img src="${artistaDatos.artists[0].strArtistThumb}" alt="imagen banda">
-        `
-    bandaAgregada = artistaDatos.artists[0].strArtist;
-    generoBanda = artistaDatos.artists[0].strStyle;
+    if (artistaDatos.artists === null) {
+        alert('Por favor, ingrese el nombre correctamente');
+    }
+    else{
 
-    modal.appendChild(artistaTemplate);
-    modalContenedor.classList.toggle('modal-active');
+        artistaTemplate.innerHTML = `
+            <img src="${artistaDatos.artists[0].strArtistLogo}" alt="logo">
+            <h2>${artistaDatos.artists[0].strArtist}<h2>
+            <p>${artistaDatos.artists[0].strStyle}</p>
+            <p>${artistaDatos.artists[0].intBornYear} - ${artistaDatos.artists[0].intDiedYear|| 'presente' }</p>
+            <img src="${artistaDatos.artists[0].strArtistThumb}" alt="imagen banda">
+            `
+        bandaAgregada = artistaDatos.artists[0].strArtist;
+        generoBanda = artistaDatos.artists[0].strStyle;
+
+        modal.appendChild(artistaTemplate);
+        modalContenedor.classList.toggle('modal-active');
 
 
-    cerrarModal.addEventListener('click', ()=>{
-        modalContenedor.classList.remove('modal-active');
-        artistaTemplate.remove();
-    }) 
+        cerrarModal.addEventListener('click', ()=>{
+            modalContenedor.classList.remove('modal-active');
+            artistaTemplate.remove();
+        }) 
+    }
 })
     
 agregar.addEventListener('click', () =>{
@@ -187,7 +196,7 @@ agregar.addEventListener('click', () =>{
                 }
             }
             if (existe){
-                alert('esta banda ya existe en tu lista de favoritos');
+                alert('Esta banda ya existe en tu lista de favoritos');
             } 
             else {
                 bandas=recuperarBandas();
