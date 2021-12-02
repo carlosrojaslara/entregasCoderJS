@@ -40,9 +40,10 @@ class banda{
 function recuperarFavs (){
     let bandasGet=[];
 
-    bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
+    bandasGet =JSON.parse(localStorage.getItem("bandasFav"));
     if (bandasGet === null) 
         return 0;
+
     else
         return bandasGet.length;     
 }
@@ -50,8 +51,10 @@ function recuperarFavs (){
 function recuperarBandas (){
     let bandasGet=[];
 
-    return bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
-     
+    bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
+    if (bandasGet === null) 
+        return []; 
+    return bandasGet;
 }
 
 function updateHeader(){
@@ -64,7 +67,7 @@ function updateHeader(){
 }
 
 function eliminarFav(nombre){
-
+    let bandasGet=[];
   
     bandasGet=JSON.parse(localStorage.getItem("bandasFav"));
    
@@ -81,7 +84,9 @@ function eliminarFav(nombre){
 
     favoritos --;
 
-    updateHeader();
+     updateHeader();
+
+
 }
 
 function armarTarjeta (banda){
@@ -140,7 +145,7 @@ formulario.addEventListener('submit',async (e) => {
     let artistaTemplate=document.createElement("div");
 
     let artista = artistaInput.value.toLowerCase().trim();
-    let artistaURL = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artista}`;
+    let artistaURL = `https://theaudiodb.com/api/v1/json/2/search.php?s=${artista}`;
     let artistaFetch = await fetch(artistaURL);
     
     let artistaDatos = await artistaFetch.json();
@@ -185,6 +190,7 @@ agregar.addEventListener('click', () =>{
                 alert('esta banda ya existe en tu lista de favoritos');
             } 
             else {
+                bandas=recuperarBandas();
                 bandas.push(new banda (bandaAgregada,generoBanda));
 
                 bandasJSON= JSON.stringify(bandas);
@@ -199,6 +205,8 @@ agregar.addEventListener('click', () =>{
             
         } 
         else {
+            bandas=recuperarBandas();
+
             bandas.push(new banda (bandaAgregada,generoBanda));
 
             bandasJSON= JSON.stringify(bandas);
