@@ -88,6 +88,8 @@ function eliminarFav(nombre){
 
      alert('BANDA ELIMINADA CON EXITO!!');
 
+     mostrarFav();
+
 
 }
 
@@ -110,6 +112,8 @@ function armarTarjeta (banda){
     eliminar.innerHTML=`<button onclick = "eliminarFav('${banda.nombreBanda}')">eliminar de favoritos</button>`;
     tarjeta.appendChild(eliminar);
 
+
+
     return tarjeta;
 
 }
@@ -122,6 +126,8 @@ function cargarFavs(){
     }
     return bandasGet;
 }
+
+
 
 function mostrarFav(){
     bandasGet=[];
